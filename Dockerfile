@@ -13,6 +13,6 @@ WORKDIR /app/
 
 RUN pipenv install --system --deploy --ignore-pipfile
 
-EXPOSE 3000
+EXPOSE 80
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
