@@ -57,6 +57,7 @@ THIRD_PARTY_APPS = ["rest_framework", "simple_history"]
 LOCAL_APPS = [
     "core.apps.CoreConfig",
     "users.apps.UsersConfig",
+    "crm.apps.CrmConfig"
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -164,10 +165,18 @@ SECURE_ORIGIN_SSL_HEADER = {"HTTP_X_FORWARDED_PROTO", "https"}
 
 # CORS Settings
 
-CORS_ORIGIN_ALLOW_ALL = DEBUG
-
-if not CORS_ORIGIN_ALLOW_ALL:
-    CORS_ORIGIN_ALLOWLIST = env("CORS_ORIGIN_ALLOWLIST", default=[])
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
 
 
 # Rest Framework Settings
