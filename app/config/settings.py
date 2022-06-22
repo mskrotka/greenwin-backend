@@ -65,6 +65,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -165,10 +166,7 @@ SECURE_ORIGIN_SSL_HEADER = {"HTTP_X_FORWARDED_PROTO", "https"}
 
 # CORS Settings
 
-CORS_ORIGIN_ALLOW_ALL = DEBUG
-
-if not CORS_ORIGIN_ALLOW_ALL:
-    CORS_ORIGIN_ALLOWLIST = env("CORS_ORIGIN_ALLOWLIST", default=[])
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Rest Framework Settings
